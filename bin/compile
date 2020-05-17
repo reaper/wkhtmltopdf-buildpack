@@ -27,12 +27,8 @@ WKHTMLTOPDF_LIBS="$WKHTMLTOPDF_PATH/lib"
 BIN_DIR=$(cd $(dirname $0); pwd)
 FONTS_DIR=$(cd "$BIN_DIR/../fonts"; pwd)
 
-if [ -f $WKHTMLTOPDF_TAR ]; then
-  echo "-----> Using wkhtmltopdf tar from cache"
-else
-  echo "-----> Downloading wkhtmltopdf tar"
-  curl -L $WKHTMLTOPDF_URL -o $WKHTMLTOPDF_TAR
-fi
+echo "-----> Downloading wkhtmltopdf tar"
+curl -L $WKHTMLTOPDF_URL -o $WKHTMLTOPDF_TAR
 
 echo "-----> Unpacking tar"
 tar -xf $WKHTMLTOPDF_TAR -C $TMP_PATH
